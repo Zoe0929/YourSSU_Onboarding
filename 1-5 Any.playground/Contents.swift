@@ -1,7 +1,5 @@
 import UIKit
 
-var greeting = "Hello, playground"
-
 //변수와 상수
 var a = 3;
 let b = 3;
@@ -31,5 +29,3 @@ var SomeAnyObject:AnyObject=SomeClass()
 
 //someAny=nil 컴파일 오류
 //SomeAnyObject=nil 컴파일 오류
-
-
