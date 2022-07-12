@@ -29,3 +29,5 @@ var SomeAnyObject:AnyObject=SomeClass()
 
 //someAny=nil 컴파일 오류
 //SomeAnyObject=nil 컴파일 오류
+
+// 옵셔널은 구조체가 아닌 열거형                                                                         

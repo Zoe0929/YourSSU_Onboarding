@@ -25,6 +25,7 @@ print(integers.count)
 let immutableArray=[1,2,3]
 
 //immutableArray.removeAll() //컴파일 오류 -> 수정 불가능
+// 배열 -> 구조체, 구조체가 변한다고 인식..
 
 //보충 - 기본값 배열 생성
 var threeDoubles=Array(repeating: 0.0, count: 3) // [0.0, 0.0, 0.0]
@@ -108,3 +109,4 @@ let subtracting: Set<Int> = setA.subtracting(setB)
 print(subtracting) // [2, 1]
 
 //print(setA[0]) 순서가 없기 때문에 인덱스 접근 불가. 접근 방법은?
+// 배열과 같이 연속적으로 저장 x, 이진 탐색 tree로 구현되어 있음. (찾아보기_...)
