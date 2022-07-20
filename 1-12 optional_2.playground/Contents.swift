@@ -41,6 +41,7 @@ if let name=myName, let friend=yourName{
 }
 
 //강제 추출- 옵셔널에 값이 들어있는지 아닌지 확인하지 않고 강제로 값을 꺼내는 방식
+// !을 이용해서 강제 추출
 //값이 없을 경우 nil -> 런타임 오류 발생
 
 printName(myName!) // yagom
