@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3627320C2890169000359169 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3627320B2890169000359169 /* UserInformation.swift */; };
 		362DD3B6288D367D00F35DF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DD3B5288D367D00F35DF9 /* AppDelegate.swift */; };
 		362DD3B8288D367D00F35DF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DD3B7288D367D00F35DF9 /* SceneDelegate.swift */; };
 		362DD3BA288D367D00F35DF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362DD3B9288D367D00F35DF9 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3627320B2890169000359169 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		362DD3B2288D367D00F35DF9 /* MySignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MySignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		362DD3B5288D367D00F35DF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		362DD3B7288D367D00F35DF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		362DD3A9288D367D00F35DF9 = {
 			isa = PBXGroup;
 			children = (
+				3627320B2890169000359169 /* UserInformation.swift */,
 				362DD3B4288D367D00F35DF9 /* MySignUp */,
 				362DD3CB288D368000F35DF9 /* MySignUpTests */,
 				362DD3D5288D368000F35DF9 /* MySignUpUITests */,
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3627320C2890169000359169 /* UserInformation.swift in Sources */,
 				362DD3E6288D380200F35DF9 /* SecondViewController.swift in Sources */,
 				362DD3BA288D367D00F35DF9 /* ViewController.swift in Sources */,
 				362DD3B6288D367D00F35DF9 /* AppDelegate.swift in Sources */,

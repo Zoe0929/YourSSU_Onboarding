@@ -16,20 +16,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91G-3O-qrk">
-                                <rect key="frame" x="25" y="88" width="57" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="91G-3O-qrk">
+                                <rect key="frame" x="37" y="118" width="56.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Push"/>
                                 <connections>
                                     <segue destination="h98-YJ-uQy" kind="show" id="0WQ-8r-lVr"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZtS-u7-tWz">
+                                <rect key="frame" x="140" y="294" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XP6-r3-sAM">
+                                <rect key="frame" x="166.5" y="118" width="227.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Set Data to Singletone Instance"/>
+                                <connections>
+                                    <action selector="touchUpSetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FAU-SB-zbK"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이름을 입력하시오" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QJT-lZ-ggC">
+                                <rect key="frame" x="37" y="192" width="340" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="나이를 입력하시오" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PRJ-vR-Rrk">
+                                <rect key="frame" x="37" y="246" width="340" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="91G-3O-qrk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="19" id="1cR-hK-vEU"/>
+                            <constraint firstItem="91G-3O-qrk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="2at-WV-ZFI"/>
+                            <constraint firstItem="XP6-r3-sAM" firstAttribute="leading" secondItem="91G-3O-qrk" secondAttribute="trailing" constant="73" id="2wy-We-VOm"/>
+                            <constraint firstItem="XP6-r3-sAM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="C4c-Sp-VZK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XP6-r3-sAM" secondAttribute="trailing" constant="20" id="CdS-eK-rBt"/>
+                            <constraint firstItem="QJT-lZ-ggC" firstAttribute="top" secondItem="XP6-r3-sAM" secondAttribute="bottom" constant="43" id="GSk-c9-fmS"/>
+                            <constraint firstItem="QJT-lZ-ggC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="MDf-Ln-sW8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QJT-lZ-ggC" secondAttribute="trailing" constant="37" id="RdH-Ru-iZz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PRJ-vR-Rrk" secondAttribute="trailing" constant="37" id="X4J-qF-pYD"/>
+                            <constraint firstItem="91G-3O-qrk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="fKo-c7-OIs"/>
+                            <constraint firstItem="PRJ-vR-Rrk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="mPB-mL-0mX"/>
+                            <constraint firstItem="PRJ-vR-Rrk" firstAttribute="top" secondItem="QJT-lZ-ggC" secondAttribute="bottom" constant="20" id="olB-Ib-ZHp"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Kyy-cI-asK"/>
+                    <connections>
+                        <outlet property="ageField" destination="PRJ-vR-Rrk" id="7yf-Yq-wZk"/>
+                        <outlet property="nameField" destination="QJT-lZ-ggC" id="GD8-ms-Ye6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,20 +82,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4x-b8-bKI">
-                                <rect key="frame" x="27" y="100" width="53" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4x-b8-bKI">
+                                <rect key="frame" x="37" y="100" width="52.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="POP"/>
                                 <connections>
                                     <action selector="popToprev" destination="h98-YJ-uQy" eventType="touchUpInside" id="dSy-dE-SHl"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IzG-Qt-p04">
+                                <rect key="frame" x="37" y="146" width="41.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKl-bF-Irp">
+                                <rect key="frame" x="37" y="190" width="41.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Uy-8j-iPl"/>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="k4x-b8-bKI" firstAttribute="leading" secondItem="8Uy-8j-iPl" secondAttribute="leading" constant="37" id="3A7-md-ugJ"/>
+                            <constraint firstItem="IzG-Qt-p04" firstAttribute="top" secondItem="k4x-b8-bKI" secondAttribute="bottom" constant="15" id="G4j-cK-Rd2"/>
+                            <constraint firstItem="gKl-bF-Irp" firstAttribute="leading" secondItem="8Uy-8j-iPl" secondAttribute="leading" constant="37" id="Vdq-0K-mCT"/>
+                            <constraint firstItem="IzG-Qt-p04" firstAttribute="leading" secondItem="8Uy-8j-iPl" secondAttribute="leading" constant="37" id="X0O-3H-JiZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ky7-SB-JZ1"/>
+                    <connections>
+                        <outlet property="ageLable" destination="gKl-bF-Irp" id="d6O-Ci-Qqr"/>
+                        <outlet property="nameLable" destination="IzG-Qt-p04" id="kIX-AV-nje"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mwu-bs-nv7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

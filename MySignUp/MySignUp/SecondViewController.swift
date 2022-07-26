@@ -8,11 +8,21 @@
 import UIKit
 
 class SecondViewController: UIViewController {
+    
+    @IBOutlet weak var nameLable :UILabel!
+    @IBOutlet weak var ageLable :UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        nameLable.text=UserInformation.shared.name
+        ageLable.text=UserInformation.shared.age
+
     }
     @IBAction func popToprev(){
         self.navigationController?.popViewController(animated: true)
