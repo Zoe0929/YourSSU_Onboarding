@@ -155,6 +155,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1ae-KI-rnF"/>
+                    <connections>
+                        <outlet property="IdTextField" destination="9nJ-1d-q35" id="XHX-4h-R08"/>
+                        <outlet property="PasswordCheckTextField" destination="VYA-Uk-n5k" id="dcH-b4-T6i"/>
+                        <outlet property="PasswordTextField" destination="8hy-iA-0qH" id="Vqy-cN-hjx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J09-K6-fiw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -399,8 +404,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="KfX-sT-jZ3"/>
-        <segue reference="RnQ-fH-NT2"/>
+        <segue reference="RPW-bf-gmo"/>
+        <segue reference="0po-70-dQg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

@@ -11,8 +11,11 @@ class SecondViewController: UIViewController {
     
     @IBOutlet var IdTextField: UITextField?
     @IBOutlet var PasswordTextField: UITextField?
+    @IBOutlet var PasswordCheckTextField: UITextField?
 
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
