@@ -9,6 +9,10 @@ let add:(Int,Int)->Int = {(a:Int,b:Int)->Int in
     return a+b
 }
 
+//func add(a: Int, b: Int)->Int{
+//    return a+b
+//}
+
 let substract: (Int, Int) -> Int
 substract = { (a: Int, b: Int) in
     return a - b

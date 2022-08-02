@@ -33,10 +33,9 @@ struct Student{
         }
     }
     
+    
     var ageIntroduction: String{
-        get{
             return "한국나이로는 \(self.koreanAge), 미국 나이는 \(weternAge)입니다."
-        }
     }
     
     //읽기 전용 타입 연산 프로퍼티 - get 생략 가능

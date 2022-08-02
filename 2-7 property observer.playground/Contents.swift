@@ -2,7 +2,7 @@ import UIKit
 
 struct Money {
     // 프로퍼티 감시자 사용
-    //프로퍼티의 값이 변경되면 willSet(변경 직전)과 didSet(변경 직후)실행됨 
+    //프로퍼티의 값이 변경되면 willSet(변경 직전)과 didSet(변경 직후)실행됨
     var currencyRate: Double = 1100 {
         willSet(newRate) {
             print("환율이 \(currencyRate)에서 \(newRate)으로 변경될 예정입니다")
@@ -55,3 +55,33 @@ moneyInMyPocket.dollar = 10
 
 print(moneyInMyPocket.won)
 // 11500.0
+
+
+class Human {
+    var name = "Unknown"
+    var alias: String {
+        get {
+            return name + " 바보"
+        }
+        set {
+            name = newValue + "별명에서 붙여진 이름"
+        }
+       // willSet { }       // error! 'willSet' cannot be provided together with a getter
+       //didSet  { }       // error! 'didSet' cannot be provided together with a getter
+    }
+}
+ 
+class Sodeul: Human {
+    override var alias: String {
+        willSet {
+            print("현재 alias = \(alias), 바뀔 alias = \(newValue)")
+        }
+        didSet {
+            print("현재 alias = \(alias), 바뀌기 전 alias = \(oldValue)")
+        }
+    }
+}
+
+
+let sodeul: Sodeul = .init()
+sodeul.alias = "소들이"
