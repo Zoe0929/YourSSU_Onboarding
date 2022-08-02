@@ -7,25 +7,16 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController{
 
-    lazy var imagePicker: UIImagePickerController={
-        let picker: UIImagePickerController=UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.delegate = self
-        return picker
-    }()
-    
-    @IBOutlet weak var imageView: UIImageView!
-    
-    @ IBAction func touchUpSelectImageButton(_sender: UIButton){
-        self.present(self.imagePicker, animated: true, completion: nil)
-    }
+    @IBOutlet weak var idField: UITextField!
+    @IBOutlet weak var pwField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        idField.text = UserInformation.shared.id
     }
+    
 
 
 }
