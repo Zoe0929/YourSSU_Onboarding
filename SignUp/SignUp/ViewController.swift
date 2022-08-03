@@ -17,6 +17,9 @@ class ViewController: UIViewController{
         idField.text = UserInformation.shared.id
     }
     
+    @IBAction func tapView(_ sender: UITapGestureRecognizer){
+        self.view.endEditing(true)
+    }
 
 
 }

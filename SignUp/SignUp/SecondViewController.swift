@@ -91,7 +91,10 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         UserInformation.shared.password = passwordTextField.text
         UserInformation.shared.introduce = introduceView.text
     }
-    
+    @IBAction func tapView(_ sender: UITapGestureRecognizer){
+        self.view.endEditing(true)
+    }
+
 
     /*
     // MARK: - Navigation
