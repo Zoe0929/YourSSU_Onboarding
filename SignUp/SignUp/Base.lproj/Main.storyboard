@@ -99,6 +99,9 @@
                                     <constraint firstAttribute="width" constant="128" id="rMY-kn-iJW"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="128" id="rbq-Lv-Ktt"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="8K0-OG-mxZ" appends="YES" id="tDo-Vx-aRh"/>
+                                </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="7PD-uK-IaM">
                                 <rect key="frame" x="190" y="64" width="204" height="128"/>
@@ -157,21 +160,12 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQB-Oz-KMP">
-                                <rect key="frame" x="68" y="113" width="76.5" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="사진 선택"/>
-                                <connections>
-                                    <action selector="touchUpSelectImageButton:" destination="J09-K6-fiw" eventType="touchUpInside" id="4fg-YO-nSN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YeU-Pd-NDt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="YeU-Pd-NDt" firstAttribute="trailing" secondItem="jiW-BN-dUU" secondAttribute="trailing" constant="20" id="1q2-Wv-crN"/>
-                            <constraint firstItem="cQB-Oz-KMP" firstAttribute="leading" secondItem="YeU-Pd-NDt" secondAttribute="leading" constant="68" id="Gd3-eN-cyz"/>
                             <constraint firstItem="Q8L-oX-5E6" firstAttribute="leading" secondItem="YeU-Pd-NDt" secondAttribute="leading" constant="42" id="Hkg-5W-4OR"/>
                             <constraint firstItem="Q0g-df-CTI" firstAttribute="top" secondItem="Q8L-oX-5E6" secondAttribute="bottom" constant="10" id="Qcg-iK-HRM"/>
                             <constraint firstItem="YeU-Pd-NDt" firstAttribute="trailing" secondItem="Q0g-df-CTI" secondAttribute="trailing" constant="20" id="QfW-bY-RSY"/>
@@ -183,11 +177,7 @@
                             <constraint firstItem="jiW-BN-dUU" firstAttribute="top" secondItem="Q0g-df-CTI" secondAttribute="bottom" constant="10" id="mXb-5z-7uk"/>
                             <constraint firstItem="7PD-uK-IaM" firstAttribute="top" secondItem="YeU-Pd-NDt" secondAttribute="top" constant="20" id="nOs-rY-Ty4"/>
                             <constraint firstItem="Q0g-df-CTI" firstAttribute="leading" secondItem="YeU-Pd-NDt" secondAttribute="leading" constant="20" id="oJD-PO-BY0"/>
-                            <constraint firstItem="cQB-Oz-KMP" firstAttribute="top" secondItem="YeU-Pd-NDt" secondAttribute="top" constant="69" id="vxy-Eg-xZ9"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="8az-nh-EYq" appends="YES" id="6pA-2i-9s1"/>
-                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="1ae-KI-rnF"/>
                     <connections>
@@ -200,12 +190,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J09-K6-fiw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="htv-QL-6oy">
-                    <connections>
-                        <action selector="tapView:" destination="tOn-NO-FJS" id="43o-Xg-C0e"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="8az-nh-EYq"/>
+                <tapGestureRecognizer id="htv-QL-6oy"/>
+                <tapGestureRecognizer id="8K0-OG-mxZ"/>
             </objects>
             <point key="canvasLocation" x="1192.753623188406" y="600"/>
         </scene>
@@ -332,7 +318,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RPW-bf-gmo"/>
+        <segue reference="IOV-Er-qcQ"/>
+        <segue reference="KfX-sT-jZ3"/>
         <segue reference="0po-70-dQg"/>
     </inferredMetricsTieBreakers>
     <resources>
