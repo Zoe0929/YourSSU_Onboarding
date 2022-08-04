@@ -26,9 +26,13 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBOutlet weak var imageView: UIImageView!
     
-    @IBAction func touchUpSelectImageButton(_ sender: UITapGestureRecognizer){
+    
+    @objc func imageViewTapped(_ sender: UITapGestureRecognizer){
         self.present(self.imagePicker, animated: true, completion: nil)
     }
+    
+    
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
@@ -47,7 +51,9 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.imageView.isUserInteractionEnabled = true
+          //제쳐스 추가
+        self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageViewTapped)))
         enableBtn(isOn: false)
         // Do any additional setup after loading the view.
     }
