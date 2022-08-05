@@ -69,6 +69,10 @@ class ThirdViewController: UIViewController {
             signButton.tintColor = .gray
         }
     }
+    
+    @IBAction func tapView(_ sender: UITapGestureRecognizer){
+        self.view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 
