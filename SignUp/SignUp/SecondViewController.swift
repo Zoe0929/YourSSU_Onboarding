@@ -16,6 +16,16 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet var introduceView: UITextView!
     @IBOutlet var NextButton: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.imageView.isUserInteractionEnabled = true
+          //제쳐스 추가
+        self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageViewTapped)))
+        introduceView.layer.cornerRadius = 15
+        enableBtn(isOn: false)
+    }
+    
+    //이미지 뷰 탭 이용 이미지 선택
     lazy var imagePicker: UIImagePickerController={
         let picker: UIImagePickerController=UIImagePickerController()
         picker.sourceType = .photoLibrary
@@ -26,13 +36,9 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBOutlet weak var imageView: UIImageView!
     
-    
     @objc func imageViewTapped(_ sender: UITapGestureRecognizer){
         self.present(self.imagePicker, animated: true, completion: nil)
     }
-    
-    
-    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
@@ -47,16 +53,6 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
             self.dismiss(animated: true, completion: nil)
         }
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.imageView.isUserInteractionEnabled = true
-          //제쳐스 추가
-        self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageViewTapped)))
-        enableBtn(isOn: false)
-        // Do any additional setup after loading the view.
-    }
     
     //버튼 활성화 기능
     
@@ -80,7 +76,6 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
                 NextButton.isUserInteractionEnabled = true
             }
         }
-        
     }
     
     @IBAction func textFieldDidEndEditing(_ textField: UITextField){
