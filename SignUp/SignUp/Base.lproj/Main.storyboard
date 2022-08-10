@@ -114,14 +114,14 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8hy-iA-0qH">
                                         <rect key="frame" x="0.0" y="47" width="204" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password 확인" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VYA-Uk-n5k">
                                         <rect key="frame" x="0.0" y="94" width="204" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
-                                            <action selector="textFieldDidEndEditing:" destination="tOn-NO-FJS" eventType="editingDidEnd" id="KSe-1V-xqG"/>
+                                            <action selector="textFieldDidEndEditing:" destination="tOn-NO-FJS" eventType="editingDidEnd" id="4ZZ-oa-4gJ"/>
                                         </connections>
                                     </textField>
                                 </subviews>
@@ -338,8 +338,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="IOV-Er-qcQ"/>
         <segue reference="KfX-sT-jZ3"/>
-        <segue reference="LyO-3h-jIe"/>
+        <segue reference="0po-70-dQg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="user" width="256" height="256"/>
