@@ -70,20 +70,20 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-    func textViewDidEndEditing(_ sender: UITextView!){
-        print("\(idTextField.text!) \(passwordTextField.text!) \(passwordCheckTextField.text!)")
-        let placehold:String = "자기소개 입력"
-        if sender.text.isEmpty{
-            sender.text=placehold
-            self.enableBtn(isOn: false)
-        }else if sender.text == placehold{
-            sender.text=""
-            self.enableBtn(isOn: false)
-        }else if textfieldisFill(), passwordCheck(passwordTextField, passwordCheckTextField) {
-            NextButton.isUserInteractionEnabled = true
-            self.enableBtn(isOn: true)
-            }
-    }
+//    func textViewDidEndEditing(_ sender: UITextView!){
+//        print("\(idTextField.text!) \(passwordTextField.text!) \(passwordCheckTextField.text!)")
+//        let placehold:String = "자기소개 입력"
+//        if sender.text.isEmpty{
+//            sender.text=placehold
+//            self.enableBtn(isOn: false)
+//        }else if sender.text == placehold{
+//            sender.text=""
+//            self.enableBtn(isOn: false)
+//        }else if textfieldisFill(), passwordCheck(passwordTextField, passwordCheckTextField) {
+//            NextButton.isUserInteractionEnabled = true
+//            self.enableBtn(isOn: true)
+//            }
+//    }
     
     @IBAction func textFieldDidEndEditing(_ textField: UITextField){
         if textField.text?.isEmpty == true{
