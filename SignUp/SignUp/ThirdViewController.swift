@@ -28,6 +28,8 @@ class ThirdViewController: UIViewController {
             phoneTextField.text=UserInformation.shared.PhoneNumber
             dateLabel.text = UserInformation.shared.birthday?.formatted()
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
         // Do any additional setup after loading the view.
     }
     
@@ -73,6 +75,24 @@ class ThirdViewController: UIViewController {
     @IBAction func tapView(_ sender: UITapGestureRecognizer){
         self.view.endEditing(true)
     }
+    
+    //키보드 올라 올 때 뷰 올리기
+    @objc func keyboardUp(notification:NSNotification) {
+        if let keyboardFrame:NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+           let keyboardRectangle = keyboardFrame.cgRectValue
+       
+            UIView.animate(
+                withDuration: 0.5
+                , animations: {
+                    self.view.transform = CGAffineTransform(translationX: 0, y: -(keyboardRectangle.height/9))
+                }
+            )
+        }
+    }
+    @objc func keyboardDown() {
+        self.view.transform = .identity
+    }
+
     /*
     // MARK: - Navigation
 
