@@ -70,6 +70,7 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
+<<<<<<< HEAD
 //    func textViewDidEndEditing(_ sender: UITextView!){
 //        print("\(idTextField.text!) \(passwordTextField.text!) \(passwordCheckTextField.text!)")
 //        let placehold:String = "자기소개 입력"
@@ -84,6 +85,22 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
 //            self.enableBtn(isOn: true)
 //            }
 //    }
+=======
+    func textViewDidEndEditing(_ sender: UITextView!){
+        print("\(idTextField.text!) \(passwordTextField.text!) \(passwordCheckTextField.text!)")
+        let placehold:String = "자기소개 입력"
+        if sender.text.isEmpty{
+            sender.text=placehold
+            self.enableBtn(isOn: false)
+        }else if sender.text == placehold{
+            sender.text=""
+            self.enableBtn(isOn: false)
+        }else if textfieldisFill(), passwordCheck(passwordTextField, passwordCheckTextField) {
+            NextButton.isUserInteractionEnabled = true
+            self.enableBtn(isOn: true)
+            }
+    }
+>>>>>>> cee420e... 키보드 올리기, 버튼 활성화
     
     @IBAction func textFieldDidEndEditing(_ textField: UITextField){
         if textField.text?.isEmpty == true{
