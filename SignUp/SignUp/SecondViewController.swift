@@ -9,20 +9,28 @@ import UIKit
 
 class SecondViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
-    var essentialFieldList = [UITextField]()
+    var imageChanged: Bool = false
     @IBOutlet var idTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var passwordCheckTextField: UITextField!
     @IBOutlet var introduceView: UITextView!
     @IBOutlet var NextButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageView.isUserInteractionEnabled = true
-          //제쳐스 추가
+        //이미지 뷰 탭 gestureRecognizer 연결
         self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.imageViewTapped)))
+        //키보드 활성화 시 탭 올라오는 함수 연결
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDown), name: UIResponder.keyboardWillHideNotification, object: nil)
+        //Strong password 해결
+        if #available(iOS 12.0, *) {
+            passwordTextField.textContentType = .oneTimeCode
+            passwordCheckTextField.textContentType = .oneTimeCode
+        }
+
         introduceView.layer.cornerRadius = 15
         enableBtn(isOn: false)
         
@@ -51,7 +59,8 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
             
         if let selectImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
                 self.imageView.image = selectImage
-                
+            // 이미지가 선택되었을 때 버튼이 활성화
+                imageChanged = true
             }
             self.dismiss(animated: true, completion: nil)
         }
@@ -79,7 +88,7 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         }else if sender.text == placehold{
             sender.text=""
             self.enableBtn(isOn: false)
-        }else if textfieldisFill(), passwordCheck(passwordTextField, passwordCheckTextField) {
+        }else if textfieldisFill(), passwordCheck(passwordTextField, passwordCheckTextField), imageChanged {
             NextButton.isUserInteractionEnabled = true
             self.enableBtn(isOn: true)
             }
@@ -101,6 +110,18 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
         UserInformation.shared.password = passwordTextField.text
         UserInformation.shared.introduce = introduceView.text
     }
+    
+    @IBAction func popToPrev(){
+        self.navigationController?.popViewController(animated: true)
+        //싱글턴 데이터 삭제
+        UserInformation.shared.id = nil
+        UserInformation.shared.password = nil
+        UserInformation.shared.introduce = nil
+        UserInformation.shared.PhoneNumber = nil
+        UserInformation.shared.birthday = nil
+    }
+    
+    //탭 제스처 이용해서 editing end
     @IBAction func tapView(_ sender: UITapGestureRecognizer){
         self.view.endEditing(true)
     }
@@ -121,13 +142,14 @@ class SecondViewController: UIViewController, UIImagePickerControllerDelegate, U
     @objc func keyboardDown() {
         self.view.transform = .identity
     }
-    
+    //조건 1 : password와 passwordCheck가 동일해야 함
     func passwordCheck(_ pw: UITextField, _ pwcheck:UITextField)->Bool{
         if pw.text == pwcheck.text {
             return true
         }
         else {return false}
     }
+    //조건 2 : 모든 textField가 채워져야 함
     func textfieldisFill()->Bool{
         if idTextField.text?.isEmpty == false , passwordTextField.text?.isEmpty == false, passwordCheckTextField.text?.isEmpty==false {
             return true

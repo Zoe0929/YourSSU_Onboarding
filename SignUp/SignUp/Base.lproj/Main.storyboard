@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="4Kf-Ni-gwk" customClass="ViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zLm-vx-G9y">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Kex-1f-sKh">
-                                <rect key="frame" x="30" y="254" width="354" height="84"/>
+                                <rect key="frame" x="30" y="298" width="354" height="84"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zXd-zW-qWk">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="34"/>
@@ -32,7 +32,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="LuB-zK-A5W">
-                                <rect key="frame" x="100" y="358" width="214" height="31"/>
+                                <rect key="frame" x="100" y="402" width="214" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGk-76-RhW">
                                         <rect key="frame" x="0.0" y="0.0" width="87" height="31"/>
@@ -87,11 +87,11 @@
             <objects>
                 <viewController id="tOn-NO-FJS" customClass="SecondViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tJV-7v-qok">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="Q8L-oX-5E6">
-                                <rect key="frame" x="42" y="64" width="128" height="128"/>
+                                <rect key="frame" x="42" y="108" width="128" height="128"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="86O-OQ-OVk"/>
@@ -104,7 +104,7 @@
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="7PD-uK-IaM">
-                                <rect key="frame" x="190" y="64" width="204" height="128"/>
+                                <rect key="frame" x="190" y="108" width="204" height="128"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ID 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9nJ-1d-q35">
                                         <rect key="frame" x="0.0" y="0.0" width="204" height="34"/>
@@ -127,7 +127,7 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.45000000000000001" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q0g-df-CTI">
-                                <rect key="frame" x="20" y="202" width="374" height="520"/>
+                                <rect key="frame" x="20" y="246" width="374" height="520"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="520" id="03D-cz-WQ3"/>
@@ -137,20 +137,20 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="92" translatesAutoresizingMaskIntoConstraints="NO" id="jiW-BN-dUU">
-                                <rect key="frame" x="20" y="732" width="374" height="90"/>
+                                <rect key="frame" x="20" y="776" width="374" height="66"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3A-iC-dwi">
-                                        <rect key="frame" x="0.0" y="0.0" width="141" height="90"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="141" height="66"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="취소">
                                             <color key="baseForegroundColor" systemColor="systemPinkColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="4Kf-Ni-gwk" kind="show" id="0po-70-dQg"/>
+                                            <action selector="popToPrev" destination="J09-K6-fiw" eventType="touchUpInside" id="1te-8y-M3q"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FOp-eq-g2m">
-                                        <rect key="frame" x="233" y="0.0" width="141" height="90"/>
+                                        <rect key="frame" x="233" y="0.0" width="141" height="66"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="다음"/>
                                         <connections>
@@ -211,34 +211,34 @@
             <objects>
                 <viewController id="Gpd-gC-zL9" customClass="ThirdViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DeK-y8-bsn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ftA-a4-Ipq">
-                                <rect key="frame" x="20" y="194" width="374" height="216"/>
+                                <rect key="frame" x="20" y="238" width="374" height="216"/>
                                 <connections>
                                     <action selector="didDaePickerValueChanged:" destination="Gpd-gC-zL9" eventType="valueChanged" id="Kev-fO-ubE"/>
                                 </connections>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gpp-bu-ROd" customClass="Third">
-                                <rect key="frame" x="20" y="99.5" width="374" height="34"/>
+                                <rect key="frame" x="20" y="143.5" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I0-SU-Lck">
-                                <rect key="frame" x="20" y="64" width="59" height="20.5"/>
+                                <rect key="frame" x="20" y="108" width="59" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="생년월일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03w-CS-hgn">
-                                <rect key="frame" x="10" y="158.5" width="59" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="생년월일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03w-CS-hgn">
+                                <rect key="frame" x="20" y="202.5" width="59" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhD-yz-JdP">
-                                <rect key="frame" x="20" y="425" width="374" height="31"/>
+                                <rect key="frame" x="20" y="479" width="374" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cIp-Xi-qbm">
                                         <rect key="frame" x="0.0" y="0.0" width="124.5" height="31"/>
@@ -247,7 +247,7 @@
                                             <color key="baseForegroundColor" systemColor="systemRedColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="4Kf-Ni-gwk" kind="show" id="RnQ-fH-NT2"/>
+                                            <action selector="touchUpCancel" destination="Gpd-gC-zL9" eventType="touchUpInside" id="nKa-Ns-GtX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQf-Qe-Aey">
@@ -255,7 +255,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="이전"/>
                                         <connections>
-                                            <segue destination="tOn-NO-FJS" kind="show" id="KfX-sT-jZ3"/>
+                                            <action selector="popToPrev" destination="Gpd-gC-zL9" eventType="touchUpInside" id="91o-gJ-baz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bx3-8p-dxs">
@@ -264,13 +264,15 @@
                                         <buttonConfiguration key="configuration" style="plain" title="가입"/>
                                         <connections>
                                             <action selector="touchUpSignButton:" destination="Gpd-gC-zL9" eventType="touchUpInside" id="ibY-rW-Aih"/>
-                                            <segue destination="4Kf-Ni-gwk" kind="show" id="LyO-3h-jIe"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PLd-KR-Wob">
-                                <rect key="frame" x="97" y="150" width="297" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMc-Dc-5pm">
+                                <rect key="frame" x="385" y="202.5" width="9" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="Vf2-bM-JOD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -280,21 +282,20 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="dqH-cj-ZHM" firstAttribute="trailing" secondItem="PLd-KR-Wob" secondAttribute="trailing" constant="10" id="6PJ-7W-1TL"/>
                             <constraint firstItem="8I0-SU-Lck" firstAttribute="top" secondItem="dqH-cj-ZHM" secondAttribute="top" constant="20" id="7CJ-tL-qoN"/>
+                            <constraint firstItem="pMc-Dc-5pm" firstAttribute="top" secondItem="gpp-bu-ROd" secondAttribute="bottom" constant="25" id="BmI-e2-uFB"/>
                             <constraint firstItem="dqH-cj-ZHM" firstAttribute="trailing" secondItem="gpp-bu-ROd" secondAttribute="trailing" constant="20" id="C05-8W-mXK"/>
                             <constraint firstItem="8I0-SU-Lck" firstAttribute="leading" secondItem="dqH-cj-ZHM" secondAttribute="leading" constant="20" id="Cvc-ht-4aL"/>
-                            <constraint firstItem="PLd-KR-Wob" firstAttribute="top" secondItem="gpp-bu-ROd" secondAttribute="bottom" constant="25" id="JTm-Jh-tsz"/>
                             <constraint firstItem="uhD-yz-JdP" firstAttribute="leading" secondItem="dqH-cj-ZHM" secondAttribute="leading" constant="20" id="LCe-5E-P91"/>
-                            <constraint firstItem="uhD-yz-JdP" firstAttribute="top" secondItem="ftA-a4-Ipq" secondAttribute="bottom" constant="15" id="MdG-On-LKU"/>
-                            <constraint firstItem="PLd-KR-Wob" firstAttribute="leading" secondItem="03w-CS-hgn" secondAttribute="trailing" constant="10" id="ZNs-mf-37R"/>
-                            <constraint firstItem="ftA-a4-Ipq" firstAttribute="top" secondItem="03w-CS-hgn" secondAttribute="bottom" constant="15" id="dMh-72-WlF"/>
+                            <constraint firstItem="03w-CS-hgn" firstAttribute="top" secondItem="gpp-bu-ROd" secondAttribute="bottom" constant="25" id="LZl-or-nnz"/>
+                            <constraint firstItem="dqH-cj-ZHM" firstAttribute="trailing" secondItem="pMc-Dc-5pm" secondAttribute="trailing" constant="20" id="NQg-be-ihD"/>
+                            <constraint firstItem="03w-CS-hgn" firstAttribute="leading" secondItem="dqH-cj-ZHM" secondAttribute="leading" constant="20" id="UVc-lJ-sV5"/>
                             <constraint firstItem="ftA-a4-Ipq" firstAttribute="leading" secondItem="dqH-cj-ZHM" secondAttribute="leading" constant="20" id="eef-kV-BcU"/>
                             <constraint firstItem="dqH-cj-ZHM" firstAttribute="trailing" secondItem="ftA-a4-Ipq" secondAttribute="trailing" constant="20" id="iU5-5u-D6s"/>
-                            <constraint firstItem="03w-CS-hgn" firstAttribute="leading" secondItem="dqH-cj-ZHM" secondAttribute="leading" constant="10" id="nYF-Tj-i1K"/>
-                            <constraint firstItem="03w-CS-hgn" firstAttribute="top" secondItem="gpp-bu-ROd" secondAttribute="bottom" constant="25" id="paY-BJ-iua"/>
                             <constraint firstItem="dqH-cj-ZHM" firstAttribute="trailing" secondItem="uhD-yz-JdP" secondAttribute="trailing" constant="20" id="uIT-Sr-2WS"/>
+                            <constraint firstItem="ftA-a4-Ipq" firstAttribute="top" secondItem="03w-CS-hgn" secondAttribute="bottom" constant="15" id="vM1-LB-Jbc"/>
                             <constraint firstItem="gpp-bu-ROd" firstAttribute="top" secondItem="8I0-SU-Lck" secondAttribute="bottom" constant="15" id="vmX-Lc-YcA"/>
+                            <constraint firstItem="uhD-yz-JdP" firstAttribute="top" secondItem="ftA-a4-Ipq" secondAttribute="bottom" constant="25" id="wiu-iN-Dkf"/>
                             <constraint firstItem="gpp-bu-ROd" firstAttribute="leading" secondItem="dqH-cj-ZHM" secondAttribute="leading" constant="20" id="zRt-eh-UKU"/>
                         </constraints>
                         <connections>
@@ -303,7 +304,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="1xu-zS-wqQ"/>
                     <connections>
-                        <outlet property="dateLabel" destination="PLd-KR-Wob" id="j0T-qz-wTY"/>
+                        <outlet property="dateLabel" destination="pMc-Dc-5pm" id="3an-5k-rtR"/>
                         <outlet property="phoneTextField" destination="gpp-bu-ROd" id="dbf-Zs-CKO"/>
                         <outlet property="signButton" destination="Bx3-8p-dxs" id="qYB-FH-O35"/>
                         <outlet property="signDatePicker" destination="ftA-a4-Ipq" id="sLl-J0-BeK"/>
@@ -337,11 +338,6 @@
             <point key="canvasLocation" x="-426.08695652173918" y="600.66964285714278"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="IOV-Er-qcQ"/>
-        <segue reference="KfX-sT-jZ3"/>
-        <segue reference="0po-70-dQg"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="user" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">

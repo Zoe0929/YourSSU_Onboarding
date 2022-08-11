@@ -17,8 +17,7 @@ class ThirdViewController: UIViewController {
     @IBOutlet weak var signButton: UIButton!
     let dateFormatter: DateFormatter = {
         let formatter: DateFormatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter .timeStyle = .medium
+        formatter.dateStyle = .long
         return formatter
     }()
     override func viewDidLoad() {
@@ -52,12 +51,28 @@ class ThirdViewController: UIViewController {
 //    }
     
     @IBAction func touchUpSignButton(_ sender: UIButton){
+        self.navigationController?.popToRootViewController(animated: true)
         UserInformation.shared.PhoneNumber = phoneTextField.text
+        
         print(UserInformation.shared.id)
         print(UserInformation.shared.password)
         print(UserInformation.shared.birthday)
         print(UserInformation.shared.introduce)
         
+    }
+    
+    @IBAction func popToPrev(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func touchUpCancel(){
+        self.navigationController?.popToRootViewController(animated: true)
+        //싱글턴 데이터 삭제
+        UserInformation.shared.id = nil
+        UserInformation.shared.password = nil
+        UserInformation.shared.introduce = nil
+        UserInformation.shared.PhoneNumber = nil
+        UserInformation.shared.birthday = nil
     }
 
     
@@ -72,6 +87,7 @@ class ThirdViewController: UIViewController {
         }
     }
     
+    //탭 제스처 이용 editing end
     @IBAction func tapView(_ sender: UITapGestureRecognizer){
         self.view.endEditing(true)
     }
