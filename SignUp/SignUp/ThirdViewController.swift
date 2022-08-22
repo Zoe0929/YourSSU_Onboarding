@@ -9,7 +9,6 @@ import UIKit
 
 class ThirdViewController: UIViewController {
     
-    var essationElement = [UITextField]()
     
     @IBOutlet weak var signDatePicker: UIDatePicker!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -20,11 +19,13 @@ class ThirdViewController: UIViewController {
         formatter.dateStyle = .long
         return formatter
     }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        enableBtn(isOn: false)
-        if UserInformation.shared.PhoneNumber != "", UserInformation.shared.birthday != nil{
-            phoneTextField.text=UserInformation.shared.PhoneNumber
+        enableButton(isOn: false)
+        if UserInformation.shared.phoneNumber != "" {
+            phoneTextField.text = UserInformation.shared.phoneNumber
             dateLabel.text = UserInformation.shared.birthday?.formatted()
         }
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardUp), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -38,7 +39,7 @@ class ThirdViewController: UIViewController {
         
         self.dateLabel.text = dateString
         UserInformation.shared.birthday = date
-        enableBtn(isOn: true)
+        enableButton(isOn: true)
         
     }
     
@@ -52,7 +53,7 @@ class ThirdViewController: UIViewController {
     
     @IBAction func touchUpSignButton(_ sender: UIButton){
         self.navigationController?.popToRootViewController(animated: true)
-        UserInformation.shared.PhoneNumber = phoneTextField.text
+        UserInformation.shared.phoneNumber = phoneTextField.text
         
         print(UserInformation.shared.id)
         print(UserInformation.shared.password)
@@ -68,15 +69,11 @@ class ThirdViewController: UIViewController {
     @IBAction func touchUpCancel(){
         self.navigationController?.popToRootViewController(animated: true)
         //싱글턴 데이터 삭제
-        UserInformation.shared.id = nil
-        UserInformation.shared.password = nil
-        UserInformation.shared.introduce = nil
-        UserInformation.shared.PhoneNumber = nil
-        UserInformation.shared.birthday = nil
+        UserInformation.shared.deleteDate()
     }
 
     
-    func enableBtn(isOn: Bool){
+    func enableButton(isOn: Bool){
         switch isOn{
         case true:
             signButton.isUserInteractionEnabled=true
