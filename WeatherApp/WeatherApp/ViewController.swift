@@ -48,8 +48,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
               return korean.count // 0번 섹션 : 한글
           case 1:
               return english.count //1번 섹션 : 영어
-        case 2:
-            return dates.count
+          case 2:
+              return dates.count
           default:
               return 0
           }
@@ -92,7 +92,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print(dates)
         self.tableView.reloadData()
 //        self.tableView.reloadSections(IndexSet(2...2), with: UITableView.RowAnimation.automatic)
+        
     }
+    
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        guard let nextViewController: SecondViewController = segue.destination as? SecondViewController else {
+            return
+            
+        }
+        guard let cell: UITableViewCell = sender as? UITableViewCell else{
+            return
+        }
+        nextViewController.textToSet = cell.textLabel?.text
+        
+        //nextViewController.textLabel?.text = cell.textLabel?.text  nextViewController는 아직 메모리에 올라와있는 상태가 아니기때문에 nil 상태 -> 오류 발생 가능
+    }
+    
     
 }
  

@@ -17,6 +17,7 @@
 		36C26FCE28AB45E100FC3490 /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C26FCD28AB45E100FC3490 /* WeatherAppUITests.swift */; };
 		36C26FD028AB45E100FC3490 /* WeatherAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C26FCF28AB45E100FC3490 /* WeatherAppUITestsLaunchTests.swift */; };
 		36C26FDD28AB6E2300FC3490 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C26FDC28AB6E2300FC3490 /* CustomTableViewCell.swift */; };
+		36C26FDF28B0C6ED00FC3490 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C26FDE28B0C6ED00FC3490 /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		36C26FCD28AB45E100FC3490 /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		36C26FCF28AB45E100FC3490 /* WeatherAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		36C26FDC28AB6E2300FC3490 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		36C26FDE28B0C6ED00FC3490 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		36C26FA028AB45E000FC3490 = {
 			isa = PBXGroup;
 			children = (
+				36C26FDE28B0C6ED00FC3490 /* SecondViewController.swift */,
 				36C26FAB28AB45E000FC3490 /* WeatherApp */,
 				36C26FC228AB45E100FC3490 /* WeatherAppTests */,
 				36C26FCC28AB45E100FC3490 /* WeatherAppUITests */,
@@ -264,6 +267,7 @@
 				36C26FB128AB45E000FC3490 /* ViewController.swift in Sources */,
 				36C26FAD28AB45E000FC3490 /* AppDelegate.swift in Sources */,
 				36C26FDD28AB6E2300FC3490 /* CustomTableViewCell.swift in Sources */,
+				36C26FDF28B0C6ED00FC3490 /* SecondViewController.swift in Sources */,
 				36C26FAF28AB45E000FC3490 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -24,3 +24,5 @@ class CustomTableViewCell: UITableViewCell {
     }
 
 }
+//셀의 재사용 문제?
+//순서 뒤죽박죽..
