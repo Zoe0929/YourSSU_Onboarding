@@ -12,22 +12,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier: String = "cell"
     var countries: [Country] = []
-    var flagImages: [String] = ["flag_kr","flag_jp","flag_it","flag_us","flag_de","flag_fr"]
+    //map함수 이용!
+    var flagImages: [String] = ["kr", "jp", "it", "us", "de", "fr"].map { "flag_" + $0 }
     var assetName: String?
     
-   
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.countries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
+        let cell: CountryTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! CountryTableViewCell
         let countries: Country = self.countries[indexPath.row]
         
-        cell.textLabel?.text = countries.koreanName
-        
-//        cell.flagImage.image = UIImage(systemName: flagImages[indexPath.row])
+        cell.setData(countries)
         
         return cell
     }
@@ -48,10 +46,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print(error.localizedDescription)
         }
         
-        self.tableView.reloadData()
-        
         tableView.delegate = self
         tableView.dataSource = self
+        
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -68,11 +66,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return
         }
         
-        guard let cell: UITableViewCell = sender as? UITableViewCell else{
+        guard let cell: CountryTableViewCell = sender as? CountryTableViewCell else{
             return
         }
-        nextViewController.textToset = cell.textLabel?.text
+        
+        nextViewController.textToset = cell.countryLabel?.text
         //nextViewController.assetName = self.assetName
+        print(nextViewController.textToset)
     
     }
     

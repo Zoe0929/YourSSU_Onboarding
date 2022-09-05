@@ -22,15 +22,10 @@ class SecondViewController: UIViewController, UITableViewDataSource,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: WeatherTableViewCell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as! WeatherTableViewCell
+        let cell: WeatherTableViewCell = (tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? WeatherTableViewCell)!
         
         let cityWeather: CityWeather = self.cityWeathers[indexPath.row]
-        
-        cell.cityLabel?.text = cityWeather.cityName
-        cell.stateLabel?.text = "섭씨 : \(cityWeather.state)도 / 화씨 \(cityWeather.celsius)도"
-        cell.rainfallLabel?.text = "강수 확률 :\(cityWeather.rainfallProbability)%"
-        cell.imageView?.image=loadingImage(Float(cityWeather.state), cityWeather.rainfallProbability)
-        setTextColor(Float(cityWeather.state), cityWeather.rainfallProbability, cell)
+        cell.setData(cityWeather)
         return cell
     }
     
@@ -43,11 +38,14 @@ class SecondViewController: UIViewController, UITableViewDataSource,UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        countryWeather(textToset!)
-        self.tableView.reloadData()
+        guard let textToset = textToset else {
+            return
+        }
+        countryWeather(textToset)
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
+        self.tableView.reloadData()
     }
     
     //데이터 셋 불러오기
@@ -83,37 +81,8 @@ class SecondViewController: UIViewController, UITableViewDataSource,UITableViewD
         }
     }
       
-    //날씨별 이미지
-    func loadingImage(_ state: Float, _ rain: Int)-> UIImage? {
-        var weatherImage: UIImage?
-        if rain >= 60 {
-            if state>10{
-              weatherImage = UIImage(named: "\(weatherImages[2]).jpg")
-            }
-            else{
-                weatherImage = UIImage(named: "\(weatherImages[1]).jpg")
-            }
-        }
-        else if rain>=30{
-            weatherImage = UIImage(named: "\(weatherImages[3]).jpg")
-        }
-        else{
-            weatherImage = UIImage(named: "\(weatherImages[0]).jpg")
-        }
-        return weatherImage
-    }
-
-    //수치별 글자색 설정
-    func setTextColor(_ state: Float, _ rain: Int, _ cell: WeatherTableViewCell){
+    
         
-        if state<=10{
-            cell.stateLabel.textColor = UIColor.blue
-        }
-        if rain>=70 {
-            cell.rainfallLabel.textColor = UIColor.orange
-        }
-        
-    }
     
     
     // MARK: - Navigation
@@ -129,24 +98,23 @@ class SecondViewController: UIViewController, UITableViewDataSource,UITableViewD
         }
         
         nextViewController.textToSet = cell.cityLabel?.text
-        nextViewController.tempToset = cell.stateLabel?.text
-        nextViewController.rainToset = cell.rainfallLabel?.text
-        nextViewController.weatherToset = cell.weatherImage?.image
+        nextViewController.tempText = cell.stateLabel?.text
+        nextViewController.rainText = cell.rainfallLabel?.text
+        nextViewController.weatherToset = cell.weatherImageView?.image
 
-        print(cell.weatherImage?.image)
-        if cell.weatherImage?.image == UIImage(named: "\(weatherImages[0]).jpg"){
-            nextViewController.weatherTextToSet = weatherKr[0]
+        print(cell.weatherImageView?.image)
+        if cell.weatherImageView?.image == UIImage(named: "\(weatherImages[0]).jpg"){
+            nextViewController.weatherText = weatherKr[0]
         }
-        else if cell.weatherImage?.image == UIImage(named: "\(weatherImages[1]).jpg"){
-            nextViewController.weatherTextToSet = weatherKr[1]
+        else if cell.weatherImageView?.image == UIImage(named: "\(weatherImages[1]).jpg"){
+            nextViewController.weatherText = weatherKr[1]
         }
-        else if cell.weatherImage?.image == UIImage(named: "\(weatherImages[2]).jpg"){
-            nextViewController.weatherTextToSet = weatherKr[2]
+        else if cell.weatherImageView?.image == UIImage(named: "\(weatherImages[2]).jpg"){
+            nextViewController.weatherText = weatherKr[2]
         }
-        else if cell.weatherImage?.image == UIImage(named: "\(weatherImages[3]).jpg"){
-            nextViewController.weatherTextToSet = weatherKr[3]
+        else if cell.weatherImageView?.image == UIImage(named: "\(weatherImages[3]).jpg"){
+            nextViewController.weatherText = weatherKr[3]
         }
     }
-    
-
 }
+

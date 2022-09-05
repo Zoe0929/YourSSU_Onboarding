@@ -9,8 +9,8 @@ import Foundation
 
 
 struct Country: Codable {
-    var koreanName: String
-    var assetName: String
+    let koreanName: String
+    let assetName: String
     
     enum CodingKeys: String,CodingKey {
         case koreanName = "korean_name"

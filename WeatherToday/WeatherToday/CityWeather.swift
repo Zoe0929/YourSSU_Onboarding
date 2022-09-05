@@ -8,10 +8,10 @@
 import Foundation
 
 struct CityWeather: Codable {
-    var cityName: String
-    var state: Int
-    var celsius: Double
-    var rainfallProbability: Int
+    let cityName: String
+    let state: Int
+    let celsius: Double
+    let rainfallProbability: Int
     
     enum CodingKeys: String,CodingKey {
         case state
