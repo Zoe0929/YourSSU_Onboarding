@@ -8,16 +8,13 @@
 import UIKit
 import Photos
 
-class ImageZoomViewController: UIViewController, UIScrollViewDelegate {
+class ImageZoomViewController: UIViewController {
 
     var asset: PHAsset! //전 화면에서 받아올 이미지
     let imageManager: PHCachingImageManager = PHCachingImageManager()
 
     @IBOutlet weak var imageView: UIImageView!
 
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return self.imageView
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,4 +27,10 @@ class ImageZoomViewController: UIViewController, UIScrollViewDelegate {
         })
     }
 
+}
+
+extension ImageZoomViewController:UIScrollViewDelegate{
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return self.imageView
+    }
 }

@@ -1,13 +1,13 @@
 //
 //  AppDelegate.swift
-//  PhotosExample
+//  AsyncExample
 //
 //  Created by 지희의 MAC on 2022/09/14.
 //
 
 import UIKit
 
-	@main
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
