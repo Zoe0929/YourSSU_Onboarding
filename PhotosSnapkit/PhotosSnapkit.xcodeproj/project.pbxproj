@@ -13,6 +13,8 @@
 		3685F07828D9D2460008F347 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3685F07628D9D2460008F347 /* Main.storyboard */; };
 		3685F07A28D9D2470008F347 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3685F07928D9D2470008F347 /* Assets.xcassets */; };
 		3685F07D28D9D2470008F347 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3685F07B28D9D2470008F347 /* LaunchScreen.storyboard */; };
+		36E2FEA228D9D8A100811CDE /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E2FEA128D9D8A100811CDE /* PhotoTableViewCell.swift */; };
+		36E2FEA428D9DF7C00811CDE /* ImageZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E2FEA328D9DF7C00811CDE /* ImageZoomViewController.swift */; };
 		3A3F6882A4CF150C531F0BD8 /* Pods_PhotosSnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89FD7E954A909C9B3E5B9A4C /* Pods_PhotosSnapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		3685F07928D9D2470008F347 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3685F07C28D9D2470008F347 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3685F07E28D9D2470008F347 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36E2FEA128D9D8A100811CDE /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoTableViewCell.swift; path = PhotosSnapkit/PhotoTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		36E2FEA328D9DF7C00811CDE /* ImageZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageZoomViewController.swift; path = PhotosSnapkit/ImageZoomViewController.swift; sourceTree = SOURCE_ROOT; };
 		5683CF730AE06FE684B264A8 /* Pods-PhotosSnapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotosSnapKit.release.xcconfig"; path = "Target Support Files/Pods-PhotosSnapKit/Pods-PhotosSnapKit.release.xcconfig"; sourceTree = "<group>"; };
 		89FD7E954A909C9B3E5B9A4C /* Pods_PhotosSnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotosSnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -66,6 +70,8 @@
 				3685F07028D9D2460008F347 /* AppDelegate.swift */,
 				3685F07228D9D2460008F347 /* SceneDelegate.swift */,
 				3685F07428D9D2460008F347 /* ViewController.swift */,
+				36E2FEA328D9DF7C00811CDE /* ImageZoomViewController.swift */,
+				36E2FEA128D9D8A100811CDE /* PhotoTableViewCell.swift */,
 				3685F07628D9D2460008F347 /* Main.storyboard */,
 				3685F07928D9D2470008F347 /* Assets.xcassets */,
 				3685F07B28D9D2470008F347 /* LaunchScreen.storyboard */,
@@ -88,7 +94,6 @@
 				35AC697C94A93E58F557F295 /* Pods-PhotosSnapKit.debug.xcconfig */,
 				5683CF730AE06FE684B264A8 /* Pods-PhotosSnapKit.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,7 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36E2FEA228D9D8A100811CDE /* PhotoTableViewCell.swift in Sources */,
 				3685F07528D9D2460008F347 /* ViewController.swift in Sources */,
+				36E2FEA428D9DF7C00811CDE /* ImageZoomViewController.swift in Sources */,
 				3685F07128D9D2460008F347 /* AppDelegate.swift in Sources */,
 				3685F07328D9D2460008F347 /* SceneDelegate.swift in Sources */,
 			);
