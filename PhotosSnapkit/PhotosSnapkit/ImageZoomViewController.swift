@@ -10,20 +10,29 @@ import Photos
 import SnapKit
 
 class ImageZoomViewController: UIViewController {
+    let scrollView = UIScrollView()
+    
     var asset: PHAsset! //전 화면에서 받아올 이미지
     let imageManager: PHCachingImageManager = PHCachingImageManager()
-    let imageView = UIImageView();
+    let imageView = UIImageView()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageManager.requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
-                                         contentMode: .aspectFill,
-                                         options: nil,
-                                         resultHandler: { image, _ in
-                   self.imageView.image = image
-               })
-        // Do any additional setup after loading the view.
+        view.addSubview(scrollView)
+        scrollView.addSubview(imageView)
+//        imageManager.requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
+//                                         contentMode: .aspectFill,
+//                                         options: nil,
+//                                         resultHandler: { image, _ in
+//                   self.imageView.image = image
+//               })
+    }
+    
+    func constraint(){
+        imageView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
     
 

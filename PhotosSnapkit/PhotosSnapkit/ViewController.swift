@@ -12,7 +12,7 @@ import Photos
 class ViewController: UIViewController {
     
     private let tableView = UITableView()
-    private let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.refresh, target: , action: <#T##Selector?#>)
+    private let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(touchUpRefreshButton))
     var fetchResult: PHFetchResult<PHAsset>!
     //이미지 로드
     let imageManager: PHCachingImageManager = PHCachingImageManager()
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.navigationItem.title = "사진 목록"
-        self.navigationItem.rightBarButtonItem
+        self.navigationItem.rightBarButtonItem = refreshButton
         view.addSubview(tableView)
         
         constraint()
@@ -89,10 +89,12 @@ class ViewController: UIViewController {
     }
     
     
- func touchupCell(){
-     let imageZoomViewController = ImageZoomViewController()
-     self.navigationController?.pushViewController(imageZoomViewController, animated: true)
- }
+
+    
+ @objc func touchUpRefreshButton() {
+     print("refresh")
+    self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+    }
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
            guard let nextViewController: ImageZoomViewController = segue.destination as? ImageZoomViewController else {
@@ -139,8 +141,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             imageManager.requestImage(for: asset, targetSize: CGSize(width: 30, height: 30), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
                 cell.imageView?.image = image
             })
+            
+            cell.detailButton.addTarget(self, action: #selector(touchupCell), for: .touchUpInside)
+            
             return cell
                }
+
+    @objc func touchupCell(_ sender: UIButton){
+        let imageZoomViewController = ImageZoomViewController()
+        self.navigationController?.pushViewController(imageZoomViewController, animated: true)
+       }
 
 }
 
