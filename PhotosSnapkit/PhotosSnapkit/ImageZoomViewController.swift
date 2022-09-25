@@ -10,29 +10,64 @@ import Photos
 import SnapKit
 
 class ImageZoomViewController: UIViewController {
-    let scrollView = UIScrollView()
+    
+    let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = .white
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 3.0
+        return scrollView
+    }()
+    
+    let contentsView = UIView()
+    
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
     var asset: PHAsset! //전 화면에서 받아올 이미지
     let imageManager: PHCachingImageManager = PHCachingImageManager()
-    let imageView = UIImageView()
 
+        
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(scrollView)
-        scrollView.addSubview(imageView)
-//        imageManager.requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
-//                                         contentMode: .aspectFill,
-//                                         options: nil,
-//                                         resultHandler: { image, _ in
-//                   self.imageView.image = image
-//               })
+        scrollView.addSubview(contentsView)
+        contentsView.addSubview(imageView)
+        
+        scrollView.delegate = self
+        
+        constraint()
+        imageManager.requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
+                                        contentMode: .aspectFit,
+                                         options: nil,
+                                         resultHandler: { image, _ in
+                   self.imageView.image = image
+               })
     }
     
+    
     func constraint(){
-        imageView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+        
+        scrollView.snp.makeConstraints { (make) in
+                   make.edges.equalTo(0)
+               }
+        
+        contentsView.snp.makeConstraints { (make) in
+            make.edges.equalTo(0)
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
         }
+        
+        imageView.snp.makeConstraints { (make) in
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        
     }
     
 
@@ -53,3 +88,4 @@ extension ImageZoomViewController:UIScrollViewDelegate{
         return self.imageView
     }
 }
+

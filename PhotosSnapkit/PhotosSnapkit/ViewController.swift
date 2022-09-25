@@ -11,28 +11,50 @@ import Photos
 
 class ViewController: UIViewController {
     
-    private let tableView = UITableView()
+    private let tableView : UITableView = {
+        let tableView = UITableView()
+
+        return tableView
+    }()
     private let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(touchUpRefreshButton))
     var fetchResult: PHFetchResult<PHAsset>!
+    
     //이미지 로드
     let imageManager: PHCachingImageManager = PHCachingImageManager()
-    let cellIdentifier: String = "cell"
-
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         self.navigationItem.title = "사진 목록"
         self.navigationItem.rightBarButtonItem = refreshButton
         view.addSubview(tableView)
         
-        constraint()
+        makeConstraint()
+        
+        tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: PhotoTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        allowAcess()
         
-        //접근 허용 확인
+        PHPhotoLibrary.shared().register(self)
+    
+    }
+    
+    func makeConstraint(){
+        
+        // 1. superView에 맞게 적용
+        tableView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            
+        }
+
+        
+    }
+    
+
+    
+    func allowAcess(){
         let photoAurhorizationStatus = PHPhotoLibrary.authorizationStatus()
         switch photoAurhorizationStatus {
         case .notDetermined:
@@ -65,30 +87,8 @@ class ViewController: UIViewController {
         @unknown default:
             print("-")
         }
-
-        PHPhotoLibrary.shared().register(self)
-    
-    }
-    
-    func constraint(){
         
-        // 1. superView에 맞게 적용
-        tableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
-
-        // 2. safeAreaLayoutGuide에 맞게 적용
-        tableView.snp.makeConstraints { (make) in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
-        }
-                
-        // 3. superView에 맞게 적용 한 뒤 inset 적용
-        tableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(0)
-        }
     }
-    
-    
 
     
  @objc func touchUpRefreshButton() {
@@ -96,62 +96,71 @@ class ViewController: UIViewController {
     self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
     }
  
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           guard let nextViewController: ImageZoomViewController = segue.destination as? ImageZoomViewController else {
-               return
-           }
-
-           guard let cell: UITableViewCell = sender as? UITableViewCell else {
-               return
-           }
-           guard let index: IndexPath = self.tableView.indexPath(for: cell) else {
-               return
-           }
-
-           nextViewController.asset = self.fetchResult[index.row]
-       }
+  
+    //객체를
+    //테이블뷰 터치 셀
+    
 }
+
+
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
             return true
         }
-
-        //편집 모드
-        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            if editingStyle == .delete {
-                let asset: PHAsset = self.fetchResult[indexPath.row]
-                PHPhotoLibrary.shared().performChanges(
-                    {PHAssetChangeRequest.deleteAssets([asset] as NSArray)
-                    }, completionHandler: nil)
-            }
+    
+    //셀 높이 지정
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    //편집 모드
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let asset: PHAsset = self.fetchResult[indexPath.row]
+            PHPhotoLibrary.shared().performChanges(
+                {PHAssetChangeRequest.deleteAssets([asset] as NSArray)
+                }, completionHandler: nil)
         }
-
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return self.fetchResult?.count ?? 0
-        }
-
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? PhotoTableViewCell else { return .init() }
-
-            let asset: PHAsset = fetchResult.object(at: indexPath.row)
-
-            //실질적인 이미지 요청
-            imageManager.requestImage(for: asset, targetSize: CGSize(width: 30, height: 30), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
-                cell.imageView?.image = image
-            })
-            
-            cell.detailButton.addTarget(self, action: #selector(touchupCell), for: .touchUpInside)
-            
-            return cell
-               }
-
-    @objc func touchupCell(_ sender: UIButton){
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.fetchResult?.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifier) as? PhotoTableViewCell else { return .init() }
+        
+        let asset: PHAsset = fetchResult.object(at: indexPath.row)
+        let options: PHImageRequestOptions = PHImageRequestOptions()
+        options.resizeMode = .exact
+        
+        //실질적인 이미지 요청
+        imageManager.requestImage(for: asset, targetSize: CGSize(width: 30, height: 30), contentMode: .aspectFill, options: options, resultHandler: { image, _ in
+            cell.myImageView.image = image
+        })
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //테이블뷰의 이벤트처리 함수
         let imageZoomViewController = ImageZoomViewController()
+        let cell = PhotoTableViewCell()
+        //  guard let index: IndexPath = self.tableView.indexP ath(for: cell) else {
+        //   return
+        // }
+        
+        imageZoomViewController.asset = self.fetchResult[0]
+        
+        
+        
         self.navigationController?.pushViewController(imageZoomViewController, animated: true)
-       }
+    }
+    
 
+    
 }
 
 extension ViewController: PHPhotoLibraryChangeObserver{
@@ -175,5 +184,8 @@ extension ViewController: PHPhotoLibraryChangeObserver{
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         self.fetchResult = PHAsset.fetchAssets(in: cameraRollCollection, options: fetchOptions)
     }
+    
+   
 }
+
 

@@ -9,35 +9,28 @@ import UIKit
 import SnapKit
 
 class PhotoTableViewCell: UITableViewCell {
-
-    let myImageView = UIImageView()
-    let detailButton: UIButton = {
-        let bt = UIButton()
-        bt.setTitle("자세히 보기", for: .normal)
-        bt.setTitleColor(UIColor.blue, for: .normal)
-        bt.titleLabel?.font = UIFont(name: "Helvetica", size: 12)
-        return bt
+    
+    static let identifier = "CustomCell"
+    
+    let myImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(myImageView)
            
-        [myImageView,detailButton].forEach {
-            contentView.addSubview($0)
-        }
-           
-        myImageView.snp.makeConstraints { (make) in
-            make.top.leading.bottom.equalToSuperview().inset(10)
-            make.width.height.equalTo(50)
-        }
-        
-        detailButton.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().inset(10)
-            make.right.leading.equalToSuperview().inset(30)
+        myImageView.snp.makeConstraints {
+            $0.centerY.equalTo(self)
+            $0.left.leading.equalTo(self).offset(20)
+            $0.height.width.equalTo(60)	
         }
         
            
        }
+    
        required init?(coder: NSCoder) {
            fatalError("init(coder:) has not been implemented")
        }
