@@ -30,8 +30,6 @@ class ImageZoomViewController: UIViewController {
     var asset: PHAsset! //전 화면에서 받아올 이미지
     let imageManager: PHCachingImageManager = PHCachingImageManager()
 
-        
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +38,6 @@ class ImageZoomViewController: UIViewController {
         contentsView.addSubview(imageView)
         
         scrollView.delegate = self
-        
         constraint()
         imageManager.requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
                                         contentMode: .aspectFit,
@@ -49,6 +46,7 @@ class ImageZoomViewController: UIViewController {
                    self.imageView.image = image
                })
     }
+    
     
     
     func constraint(){

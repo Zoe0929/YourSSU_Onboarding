@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     //이미지 로드
     let imageManager: PHCachingImageManager = PHCachingImageManager()
+    
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +43,9 @@ class ViewController: UIViewController {
     }
     
     func makeConstraint(){
-        
-        // 1. superView에 맞게 적용
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            
         }
-
-        
     }
     
 
@@ -145,18 +141,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         //테이블뷰의 이벤트처리 함수
-        let imageZoomViewController = ImageZoomViewController()
-        let cell = PhotoTableViewCell()
-        //  guard let index: IndexPath = self.tableView.indexP ath(for: cell) else {
-        //   return
-        // }
         
-        imageZoomViewController.asset = self.fetchResult[0]
-        
-        
-        
-        self.navigationController?.pushViewController(imageZoomViewController, animated: true)
+        let nextViewcontroller = ImageZoomViewController()
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifier) as? PhotoTableViewCell else { return }
+        let index: IndexPath = indexPath
+        nextViewcontroller.asset = self.fetchResult[index.row]
+        print (self.fetchResult[index.row])
+        self.navigationController?.pushViewController(nextViewcontroller, animated: true)
     }
     
 
@@ -187,5 +180,4 @@ extension ViewController: PHPhotoLibraryChangeObserver{
     
    
 }
-
 
