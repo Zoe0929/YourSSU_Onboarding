@@ -9,23 +9,19 @@ import UIKit
 
 class ThridViewController: UIViewController {
 
-    @IBOutlet weak var weatherImage: UIImageView?
+    @IBOutlet weak var weatherImageView: UIImageView?
     @IBOutlet weak var weatherLabel:UILabel?
     @IBOutlet weak var temperatureLabel:UILabel?
     @IBOutlet weak var rainfallLabel:UILabel?
     var textToSet: String?
     var weatherToset:UIImage?
-    var weatherTextToSet: String?
-    var tempToset:String?
-    var rainToset:String?
+    var weatherText: String?
+    var tempText:String?
+    var rainText:String?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = textToSet
-        self.weatherImage?.image = weatherToset
-        self.weatherLabel?.text = weatherTextToSet
-        self.temperatureLabel?.text = tempToset
-        self.rainfallLabel?.text = rainToset
+        setText()
         
     }
     override func viewDidLoad() {
@@ -34,6 +30,13 @@ class ThridViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func setText(){
+        self.navigationItem.title = textToSet
+        self.weatherImageView?.image = weatherToset
+        self.weatherLabel?.text = weatherText
+        self.temperatureLabel?.text = tempText
+        self.rainfallLabel?.text = rainText
+    }
 
     /*
     // MARK: - Navigation

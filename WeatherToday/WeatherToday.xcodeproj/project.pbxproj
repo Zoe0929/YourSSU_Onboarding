@@ -21,6 +21,7 @@
 		360ED23928B47DCE00C7A3A6 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360ED23828B47DCE00C7A3A6 /* Country.swift */; };
 		360ED23F28BC1B1000C7A3A6 /* CityWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360ED23E28BC1B1000C7A3A6 /* CityWeather.swift */; };
 		360ED24128BC2A3D00C7A3A6 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360ED24028BC2A3D00C7A3A6 /* WeatherTableViewCell.swift */; };
+		3647A54728C64A5C009B3B6E /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647A54628C64A5C009B3B6E /* CountryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		360ED23828B47DCE00C7A3A6 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		360ED23E28BC1B1000C7A3A6 /* CityWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeather.swift; sourceTree = "<group>"; };
 		360ED24028BC2A3D00C7A3A6 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		3647A54628C64A5C009B3B6E /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				360ED20628B3E03700C7A3A6 /* SceneDelegate.swift */,
 				360ED20828B3E03700C7A3A6 /* ViewController.swift */,
 				360ED23828B47DCE00C7A3A6 /* Country.swift */,
+				3647A54628C64A5C009B3B6E /* CountryTableViewCell.swift */,
 				360ED23E28BC1B1000C7A3A6 /* CityWeather.swift */,
 				360ED23428B478A000C7A3A6 /* SecondViewController.swift */,
 				360ED23628B478AC00C7A3A6 /* ThridViewController.swift */,
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3647A54728C64A5C009B3B6E /* CountryTableViewCell.swift in Sources */,
 				360ED24128BC2A3D00C7A3A6 /* WeatherTableViewCell.swift in Sources */,
 				360ED23528B478A000C7A3A6 /* SecondViewController.swift in Sources */,
 				360ED20928B3E03700C7A3A6 /* ViewController.swift in Sources */,
