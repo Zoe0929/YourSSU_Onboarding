@@ -13,33 +13,37 @@ class ViewController: UIViewController {
     
     private let tableView : UITableView = {
         let tableView = UITableView()
-
+        
         return tableView
     }()
-    private let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(touchUpRefreshButton))
+    
+    //private let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(touchUpRefreshButton))
+    
     var fetchResult: PHFetchResult<PHAsset>!
     
     //이미지 로드
     let imageManager: PHCachingImageManager = PHCachingImageManager()
     
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "사진 목록"
-        self.navigationItem.rightBarButtonItem = refreshButton
-        view.addSubview(tableView)
-        
+        setView()
         makeConstraint()
-        
         tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: PhotoTableViewCell.identifier)
+        allowAcess()
+        PHPhotoLibrary.shared().register(self)
+        
+    }
+    
+    func setView(){
+        self.navigationItem.title = "사진 목록"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(touchUpRefreshButton))
         tableView.delegate = self
         tableView.dataSource = self
+
         
-        allowAcess()
-        
-        PHPhotoLibrary.shared().register(self)
-    
+        view.addSubview(tableView)
     }
     
     func makeConstraint(){
@@ -48,7 +52,7 @@ class ViewController: UIViewController {
         }
     }
     
-
+    
     
     func allowAcess(){
         let photoAurhorizationStatus = PHPhotoLibrary.authorizationStatus()
@@ -85,16 +89,12 @@ class ViewController: UIViewController {
         }
         
     }
-
     
- @objc func touchUpRefreshButton() {
-     print("refresh")
-    self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
+    
+    @objc func touchUpRefreshButton() {
+        print("refresh")
+        self.tableView.reloadSections(IndexSet(0...0), with: .automatic)
     }
- 
-  
-    //객체를
-    //테이블뷰 터치 셀
     
 }
 
@@ -103,8 +103,8 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-            return true
-        }
+        return true
+    }
     
     //셀 높이 지정
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -145,14 +145,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         //테이블뷰의 이벤트처리 함수
         
         let nextViewcontroller = ImageZoomViewController()
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifier) as? PhotoTableViewCell else { return }
+        //        guard let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifier) as? PhotoTableViewCell else { return }
         let index: IndexPath = indexPath
         nextViewcontroller.asset = self.fetchResult[index.row]
         print (self.fetchResult[index.row])
         self.navigationController?.pushViewController(nextViewcontroller, animated: true)
     }
     
-
+    
     
 }
 
@@ -172,12 +172,12 @@ extension ViewController: PHPhotoLibraryChangeObserver{
         guard let cameraRollCollection = cameraRoll.firstObject else {
             return
         }
-
+        
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         self.fetchResult = PHAsset.fetchAssets(in: cameraRollCollection, options: fetchOptions)
     }
     
-   
+    
 }
 

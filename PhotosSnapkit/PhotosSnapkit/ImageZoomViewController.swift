@@ -29,56 +29,57 @@ class ImageZoomViewController: UIViewController {
     
     var asset: PHAsset! //전 화면에서 받아올 이미지
     let imageManager: PHCachingImageManager = PHCachingImageManager()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        scrollView.delegate = self
+        setView()
+        makeConstraint()
+        imageManager.requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
+                                  contentMode: .aspectFit,
+                                  options: nil,
+                                  resultHandler: { image, _ in
+            self.imageView.image = image
+        })
+    }
+    
+    func setView(){
         view.addSubview(scrollView)
         scrollView.addSubview(contentsView)
         contentsView.addSubview(imageView)
         
-        scrollView.delegate = self
-        constraint()
-        imageManager.requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight),
-                                        contentMode: .aspectFit,
-                                         options: nil,
-                                         resultHandler: { image, _ in
-                   self.imageView.image = image
-               })
     }
     
-    
-    
-    func constraint(){
+    func makeConstraint(){
         
-        scrollView.snp.makeConstraints { (make) in
-                   make.edges.equalTo(0)
-               }
-        
-        contentsView.snp.makeConstraints { (make) in
-            make.edges.equalTo(0)
-            make.width.equalToSuperview()
-            make.height.equalToSuperview()
+        scrollView.snp.makeConstraints {
+            $0.edges.equalTo(0)
         }
         
-        imageView.snp.makeConstraints { (make) in
-            make.width.equalToSuperview()
-            make.height.equalToSuperview()
+        contentsView.snp.makeConstraints {
+            $0.edges.equalTo(0)
+            $0.width.equalToSuperview()
+            $0.height.equalToSuperview()
+        }
+        
+        imageView.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalToSuperview()
         }
         
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension ImageZoomViewController:UIScrollViewDelegate{

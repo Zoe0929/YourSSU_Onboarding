@@ -21,18 +21,18 @@ class PhotoTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(myImageView)
-           
+        
         myImageView.snp.makeConstraints {
             $0.centerY.equalTo(self)
             $0.left.leading.equalTo(self).offset(20)
-            $0.height.width.equalTo(60)	
+            $0.height.width.equalTo(60)
         }
+
         
-           
-       }
-    
-       required init?(coder: NSCoder) {
-           fatalError("init(coder:) has not been implemented")
-       }
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
 }
