@@ -17,7 +17,9 @@ class ViewController: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         idField.text = UserInformation.shared.id
+        
     }
     
     @IBAction func tapView(_ sender: UITapGestureRecognizer){
